@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pre-book with Payment Gateway</title>
+  <link rel="icon" href="Rhyno-logo.png">
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        background-image: url("Logo\ cropped\ without\ tagline.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+    }
+
+    .container {
+        width: 300px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        opacity: 0.7;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        padding-right: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    input[type="text"],
+    input[type="email"] ,
+    select{
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #successMessage {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #4caf50;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    @media (max-width:768px){
+   
+        .container{
+            width: 250px;
+        }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container-container">
+    <div class="container">
+      <h1>Pre-book Now</h1>
+      <form id="paymentForm">
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="SelectModel">Select Model:</label>
+          <select name="" id="">
+              <option value=""></option>
+              <option value="SE03lite">SE03 LITE</option>
+              <option value="SE03">SE03</option>
+              <option value="SE03max">SE03 MAX</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cardNumber">Card Number:</label>
+          <input type="text" id="cardNumber" name="cardNumber" maxlength="16" required>
+        </div>
+        <div class="form-group">
+          <label for="expiryDate">Expiry Date:</label>
+          <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+        </div>
+        <div class="form-group">
+          <label for="cvv">CVV:</label>
+          <input type="text" id="cvv" name="cvv" maxlength="3" required>
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount:</label>
+          <input type="text" id="amount" name="amount" placeholder="Enter amount" required>
+        </div>
+        <button type="submit" id="payButton">Pay Now</button>
+      </form>
+      <div id="successMessage" class="hidden">Payment successful!</div>
+    </div>
+  </div>
+  
+  <script >
+    document.getElementById('paymentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        setTimeout(function() {
+            document.getElementById('successMessage').classList.remove('hidden');
+        }, 2000);
+    });
+
+  </script>
+</body>
+</html>
